@@ -1,18 +1,29 @@
-/*JSNACK JSNACK 4
-Crea due array che hanno un numero di elementi diversi. Aggiungi elementi casuali all’array che ha meno elementi, fino a quando ne avrà tanti quanti l’altro.*/
+/*Pari e Dispari
+L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
+Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+Sommiamo i due numeri
+Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+Dichiariamo chi ha vinto.*/
 
-var array1 =[1, 2, 4, 6, 8, 9];
-var array2 =[1, 2, 4];
-
-
-while (array1.length != array2.length ) {
-
-  if (array1.length > array2.length) {
-    array2.push(parseInt(Math.random()*(10)));
-  } else if (array1.length < array2.length) {
-    array1.push(parseInt(Math.random()*(10)));
-  }
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
-console.log(array1);
-console.log(array2);
+var scelta = prompt("scegli pari o dispari");
+var numUtente = parseInt(prompt("scegli un num da 1 a 5"));
+var numComputer = getRandomInt(1, 5);
+console.log(scelta);
+console.log(numUtente);
+console.log(numComputer);
+
+var totale = numUtente + numComputer;
+
+if ((!(totale % 2)) && scelta == "pari") {
+  console.log("Hai vinto, complimenti !!");
+} else if ((totale % 2) && scelta == "dispari") {
+  console.log("Hai vinto, complimenti !!");
+} else {
+  console.log("Ha vinto il pc, ritenta");
+}
