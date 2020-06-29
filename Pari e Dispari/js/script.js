@@ -11,19 +11,26 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-var scelta = prompt("scegli pari o dispari");
-var numUtente = parseInt(prompt("scegli un num da 1 a 5"));
-var numComputer = getRandomInt(1, 5);
-console.log(scelta);
-console.log(numUtente);
-console.log(numComputer);
+var btn = document.getElementById('print');
 
-var totale = numUtente + numComputer;
+btn.addEventListener ("click" , function () {
 
-if ((!(totale % 2)) && scelta == "pari") {
-  console.log("Hai vinto, complimenti !!");
-} else if ((totale % 2) && scelta == "dispari") {
-  console.log("Hai vinto, complimenti !!");
-} else {
-  console.log("Ha vinto il pc, ritenta");
-}
+  var scelta = document.getElementById('ParieDispari').value;
+  var numUtente = parseInt(document.getElementById('num').value);
+  var numComputer = getRandomInt(1, 5);
+  console.log(scelta);
+  console.log(numUtente);
+  console.log(numComputer);
+
+
+  var totale = numUtente + numComputer;
+
+  if ((!(totale % 2)) && scelta == "Pari") {
+    console.log("Hai vinto, complimenti !!");
+  } else if ((totale % 2) && scelta == "Dispari") {
+    console.log("Hai vinto, complimenti !!");
+  } else {
+    console.log("Ha vinto il pc, ritenta");
+  }
+
+});
